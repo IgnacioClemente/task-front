@@ -1,13 +1,16 @@
 const form = document.getElementById('tareaForm');
+const table = document.getElementById('table');
 form.addEventListener('submit', async (event) =>{
   event.preventDefault();
   //Capturo los datos
   const titulo = document.getElementById('titulo').value;
   const completada = document.getElementById('completada').checked;
+  var mostrarTablero = false;
   const tarea = {
     titulo:titulo,
     completada:completada,
   };
+  if(mostrarTablero = true)
   try {
     const response = await fetch('http://localhost:3000/tareas',{
       method:'POST',
@@ -15,7 +18,9 @@ form.addEventListener('submit', async (event) =>{
     });
     if(response.ok){
       form.reset();
+      cargarTareas();
       console.log('Tarea enviada');
+      mostrarTablero = true
     }
   } catch (error) {
     console.log('ERROR!!!');
@@ -37,21 +42,14 @@ async function cargarTareas() {
 }
 //dibujo la table
 function renderTareas(tareas){
-  const tareasListHTML = tareas.map((t) => `
-    <table>
-    <tr>
-      <th>ID</th>
-      <th>Titulo</th>
-      <th>Completada</th>
-    </tr>
-    <tr>
-      <th>${t.id}</th>
-      <th>${t.titulo}</th>
-      <th>${t.completada}</th>
-    </tr>
-    </table>
-    `
-  );
-  app.innerHTML = tareasListHTML;
+  console.log(tareas);
+  tareas.forEach(t => {
+    let row = table.insertRow();
+    let id = row.insertCell(0);
+    id.innerHTML = t.id;
+    let titulo = row.insertCell(1);
+    titulo.innerHTML = t.titulo;
+    let completada = row.insertCell(2);
+    completada.innerHTML = t.completada;
+  });
 };
-cargarTareas();
