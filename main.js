@@ -40,6 +40,11 @@ function renderTareas(tareas){
   const tareasListHTML = tareas.map((t) => `
     <table>
     <tr>
+      <th>ID</th>
+      <th>Titulo</th>
+      <th>Completada</th>
+    </tr>
+    <tr>
       <th>${t.id}</th>
       <th>${t.titulo}</th>
       <th>${t.completada}</th>
