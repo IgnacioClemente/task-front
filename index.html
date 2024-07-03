@@ -7,8 +7,10 @@
   <title>Vite App</title>
 </head>
 <body>
+  <div id ="container">
   <div id="app">
     <form id="tareaForm">
+      <input type="text" id="id" name="id" hidden>
       <label for="titulo"> Titulo de la tarea</label>
       <input type="text" id="titulo" name="titulo" required>
       <label for="completada"> Completada</label>
@@ -21,11 +23,14 @@
           <th>ID</th>
           <th>Titulo</th>
           <th>Completada</th>
+          <th>Eliminar</th>
+          <th>Editar</th>
         </tr>
       </thead>
       <tbody id="table"></tbody>
     </table>
   </div>
+</div>
   <script type="module" src="/main.js"></script>
 </body>
 </html>

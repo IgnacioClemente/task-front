@@ -1,3 +1,9 @@
+#container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
 table {
   font-family: arial, sans-serif;
   border-collapse: collapse;
@@ -12,4 +18,8 @@ td, th {
 
 tr:nth-child(even) {
   background-color: #dddddd;
+}
+
+table button{
+  background-color: wheat;
 }
